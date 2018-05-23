@@ -10,10 +10,10 @@ class DoudouController extends Controller
     /**
      * @Route("/", name="home")
      */
-    public function home(Request $request)
+    public function home()
     {
         return $this->render('doudou/home.html.twig', [
-            'controller_name' => 'DoudouController',
+            'doudous' => 'DoudouController',
         ]);
     }
 }

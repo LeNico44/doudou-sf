@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DoudouRepository")
  */
-class Doudou
+class Doudou implements \JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -45,6 +45,11 @@ class Doudou
      * @ORM\Column(type="float", nullable=true)
      */
     private $lng;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $dateDecouverte;
 
     public function getId()
     {
@@ -121,5 +126,38 @@ class Doudou
         $this->lng = $lng;
 
         return $this;
+    }
+
+    public function getDateDecouverte(): ?\DateTimeInterface
+    {
+        return $this->dateDecouverte;
+    }
+
+    public function setDateDecouverte(?\DateTimeInterface $dateDecouverte): self
+    {
+        $this->dateDecouverte = $dateDecouverte;
+
+        return $this;
+    }
+
+    /**
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    public function jsonSerialize()
+    {
+        return[
+            "id" => $this->getId(),
+            "color" => $this->getCouleur(),
+            "dateFind" => $this->getDateDecouverte(),
+            "placeFind" => $this->getLieuDecouverte(),
+            "type" => $this->getType(),
+            "lat" => $this->getLat(),
+            "lng" => $this->getLng(),
+            "image" => $this->getPhoto(),
+        ];
     }
 }

@@ -19,32 +19,39 @@ class DoudouRepository extends ServiceEntityRepository
         parent::__construct($registry, Doudou::class);
     }
 
-//    /**
-//     * @return Doudou[] Returns an array of Doudou objects
-//     */
-    /*
-    public function findByExampleField($value)
+    public function search(?string $q = null)
     {
-        return $this->createQueryBuilder('d')
-            ->andWhere('d.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('d.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        //Version avec QueryBuilder
+        $qb = $this->createQueryBuilder('d');
 
-    /*
-    public function findOneBySomeField($value): ?Doudou
-    {
-        return $this->createQueryBuilder('d')
-            ->andWhere('d.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        if(!empty($q)){
+            $qb->andWhere('d.type LIKE :q
+                OR d.lieuDecouverte LIKE :q 
+                OR d.dateDecouverte LIKE :q');
+            $qb->setParameter("q", '%' . $q . '%');
+        }
+
+        $qb->addOrderBy("d.dateDecouverte", "DESC");
+
+        //jointure pour récupérer les reviews en même temps
+        //$qb->leftJoin('d.reviews', 'r');
+        //$qb->addSelect('r');
+
+        $query = $qb->getQuery();
+
+        /*
+        //Version avec DQL
+        $dql = "SELECT m
+                FROM App\Entity\Movie m
+                WHERE m.title LIKE :q
+                OR m.actors LIKE :q
+                OR m.directors LIKE :q";
+
+        $query = $this->getEntityManager()->createQuery($dql)
+        */
+        $query->setMaxResults(30);
+        $results = $query->getResult();
+
+        return $results;
     }
-    */
 }

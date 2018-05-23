@@ -27,11 +27,6 @@ class Doudou
     private $type;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
-     */
-    private $coordGPS;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $lieuDecouverte;
@@ -40,6 +35,16 @@ class Doudou
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $photo;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $lat;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $lng;
 
     public function getId()
     {
@@ -70,18 +75,6 @@ class Doudou
         return $this;
     }
 
-    public function getCoordGPS(): ?float
-    {
-        return $this->coordGPS;
-    }
-
-    public function setCoordGPS(?float $coordGPS): self
-    {
-        $this->coordGPS = $coordGPS;
-
-        return $this;
-    }
-
     public function getLieuDecouverte(): ?string
     {
         return $this->lieuDecouverte;
@@ -102,6 +95,30 @@ class Doudou
     public function setPhoto(?string $photo): self
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getLat(): ?float
+    {
+        return $this->lat;
+    }
+
+    public function setLat(?float $lat): self
+    {
+        $this->lat = $lat;
+
+        return $this;
+    }
+
+    public function getLng(): ?float
+    {
+        return $this->lng;
+    }
+
+    public function setLng(?float $lng): self
+    {
+        $this->lng = $lng;
 
         return $this;
     }

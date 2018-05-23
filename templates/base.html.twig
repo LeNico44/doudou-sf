@@ -13,13 +13,14 @@
         <nav>
             <ul>
                 <li><a href="{{ path('home') }}">Home</a></li>
+                <li><a href="{{ path('doudou_create') }}">Déclarer un doudou trouvé !</a></li>
             </ul>
         </nav>
 
-        <form method="get" action="{{ path('home') }}">
+        <!-- <form method="get" action="{{ path('home') }}">
             <input placeholder="Batman, Brad Pitt, etc." type="search" name="q">
             <button type="submit">OK</button>
-        </form>
+        </form> -->
     </header>
     {% for label, messages in app.flashes %}
         {% for message in messages %}

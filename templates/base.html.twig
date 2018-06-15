@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Movies !{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+<div class="container">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ path('home') }}">Home</a></li>
+                <li><a href="{{ path('doudou_create') }}">Déclarer un doudou trouvé !</a></li>
+            </ul>
+        </nav>
+
+        <!-- <form method="get" action="{{ path('home') }}">
+            <input placeholder="Batman, Brad Pitt, etc." type="search" name="q">
+            <button type="submit">OK</button>
+        </form> -->
+    </header>
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+    <footer>
+
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Accueil !</h1>
+
+    {% for doudou in doudous  %}
+        <a href="" class="photo">
+            <img src="{{ asset('img/photos/' ~ doudou.photo) }}">
+        </a>
+    {% endfor %}
+
+{% endblock %}
+
+{% block title %}Doudous !{% endblock %}

@@ -145,6 +145,18 @@ class Doudou implements \JsonSerializable
         return $this;
     }
 
+    public function getPersonne(): ?Personne
+    {
+        return $this->personne;
+    }
+
+    public function setPersonne(?Personne $personne): self
+    {
+        $this->personne = $personne;
+
+        return $this;
+    }
+
     /**
      * Specify data which should be serialized to JSON
      * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
@@ -169,18 +181,6 @@ class Doudou implements \JsonSerializable
                 "email" => $this->getPersonne()->getEmail(),
                 ],
         ];
-    }
-
-    public function getPersonne(): ?Personne
-    {
-        return $this->personne;
-    }
-
-    public function setPersonne(?Personne $personne): self
-    {
-        $this->personne = $personne;
-
-        return $this;
     }
 
 }

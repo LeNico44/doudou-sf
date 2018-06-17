@@ -19,24 +19,40 @@ class PersonneRepository extends ServiceEntityRepository
         parent::__construct($registry, Personne::class);
     }
 
-    public function bla(?string $q = null)
+    public function search(?string $q = null)
     {
-        $qb = $this->createQueryBuilder('p');
+        //Version avec QueryBuilder
+        $qb = $this->createQueryBuilder('d');
 
-        /*if(!empty($q)){
-            $qb->andWhere('p.firstname LIKE :q
-                OR p.lastname LIKE :q 
-                OR p.lastname LIKE :q');
+        if(!empty($q)){
+            $qb->andWhere('d.firstname LIKE :q
+                OR d.lastname LIKE :q 
+                OR d.email LIKE :q');
             $qb->setParameter("q", '%' . $q . '%');
-        }*/
+        }
 
-        $qb->addOrderBy("p.lastname", "DESC");
+        $qb->addOrderBy("d.lastname", "DESC");
+
+        //jointure pour récupérer les reviews en même temps
+        //$qb->leftJoin('d.reviews', 'r');
+        //$qb->addSelect('r');
 
         $query = $qb->getQuery();
 
-        //$query->setMaxResults(30);
+        /*
+        //Version avec DQL
+        $dql = "SELECT m
+                FROM App\Entity\Movie m
+                WHERE m.title LIKE :q
+                OR m.actors LIKE :q
+                OR m.directors LIKE :q";
+
+        $query = $this->getEntityManager()->createQuery($dql)
+        */
+        $query->setMaxResults(30);
         $results = $query->getResult();
 
         return $results;
     }
 }
+

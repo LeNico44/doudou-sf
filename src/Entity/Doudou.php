@@ -24,11 +24,6 @@ class Doudou implements \JsonSerializable
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $type;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     private $lieuDecouverte;
 
     /**
@@ -56,6 +51,11 @@ class Doudou implements \JsonSerializable
      */
     private $personne;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Type", inversedBy="doudous")
+     */
+    private $type;
+
     public function getId()
     {
         return $this->id;
@@ -69,18 +69,6 @@ class Doudou implements \JsonSerializable
     public function setCouleur(?string $Couleur): self
     {
         $this->Couleur = $Couleur;
-
-        return $this;
-    }
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
 
         return $this;
     }
@@ -157,6 +145,18 @@ class Doudou implements \JsonSerializable
         return $this;
     }
 
+    public function getType(): ?Type
+    {
+        return $this->type;
+    }
+
+    public function setType(?Type $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
     /**
      * Specify data which should be serialized to JSON
      * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
@@ -171,7 +171,9 @@ class Doudou implements \JsonSerializable
             "color" => $this->getCouleur(),
             "dateFind" => $this->getDateDecouverte(),
             "placeFind" => $this->getLieuDecouverte(),
-            "type" => $this->getType(),
+            "type" => [
+                "label" => $this->getType(),
+                ],
             "lat" => $this->getLat(),
             "lng" => $this->getLng(),
             "image" => $this->getPhoto(),
@@ -182,5 +184,7 @@ class Doudou implements \JsonSerializable
                 ],
         ];
     }
+
+
 
 }

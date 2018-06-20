@@ -172,7 +172,7 @@ class Doudou implements \JsonSerializable
             "dateFind" => $this->getDateDecouverte(),
             "placeFind" => $this->getLieuDecouverte(),
             "type" => [
-                "label" => $this->getType(),
+                "label" => $this->getType()->getLabel(),
                 ],
             "lat" => $this->getLat(),
             "lng" => $this->getLng(),

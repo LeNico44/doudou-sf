@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Doudou;
 use App\Entity\Personne;
+
 use App\Entity\Type;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -61,6 +62,7 @@ class ApiController extends Controller
     }
 
     /**
+
      * @Route("/api/v1/types", name="api_types_list", methods={"GET"})
      */
     public function typesList()
@@ -108,6 +110,7 @@ class ApiController extends Controller
      */
     public function doudouCreate(Request $request)
     {
+
         var_dump($_FILES);
         $photo = basename($_FILES['photo']['name']);
         $dossier = $webPath = $this->get('kernel')->getProjectDir() . '/public/img/photos/';
@@ -122,15 +125,21 @@ class ApiController extends Controller
 
         $personneRepo = $this->getDoctrine()->getRepository(Personne::class);
         $typeRepo = $this->getDoctrine()->getRepository(Type::class);
+
         //créer une instance de doudou vide
         $doudou = new Doudou();
         //interprétation des champs du formulaire
         $color = $request->request->get('color');
+
+        $chkBox = $request->request->get('chkGeo');
+        $latitude = $request->request->get('latitude');
+        $longitude = $request->request->get('longitude');
         $lieu = $request->request->get('lieu');
         $id_detenteur = $request->request->get('detenteur');
         $detenteur = $personneRepo->find($id_detenteur);
         $id_type = $request->request->get('type');
         $type = $typeRepo->find($id_type);
+
 
 
         //renseignement des champs utiles pour la création du doudou
@@ -139,7 +148,11 @@ class ApiController extends Controller
         $doudou->setLieuDecouverte($lieu);
         $doudou->setPhoto($photo);
         $doudou->setPersonne($detenteur);
+        $doudou->setLat($latitude);
+        $doudou->setLng($longitude);
         $doudou->setDateDecouverte(new \DateTime());
+        
+
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($doudou);

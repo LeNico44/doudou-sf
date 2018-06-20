@@ -72,7 +72,6 @@ class Doudou implements \JsonSerializable
 
         return $this;
     }
-
     public function getLieuDecouverte(): ?string
     {
         return $this->lieuDecouverte;
@@ -184,7 +183,4 @@ class Doudou implements \JsonSerializable
                 ],
         ];
     }
-
-
-
 }

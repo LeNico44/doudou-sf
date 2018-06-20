@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Doudou;
 use App\Entity\Personne;
+
+use App\Entity\Type;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -60,6 +62,22 @@ class ApiController extends Controller
     }
 
     /**
+
+     * @Route("/api/v1/types", name="api_types_list", methods={"GET"})
+     */
+    public function typesList()
+    {
+        $typeRepo = $this->getDoctrine()->getRepository(Type::class);
+        $types = $typeRepo->findAll();
+
+        return $this->json([
+            "status" => "ok",
+            "message" => "",
+            "data" => $types,
+        ]);
+    }
+
+    /**
      * @Route("/api/v1/detenteur/", name="api_detenteur_new", methods={"GET", "POST"})
      */
     public function detenteurCreate(Request $request)
@@ -92,20 +110,38 @@ class ApiController extends Controller
      */
     public function doudouCreate(Request $request)
     {
+
+        var_dump($_FILES);
+        $photo = basename($_FILES['photo']['name']);
+        $dossier = $webPath = $this->get('kernel')->getProjectDir() . '/public/img/photos/';
+        if(move_uploaded_file($_FILES['photo']['tmp_name'], $dossier . $photo)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
+        {
+            echo 'Upload effectué avec succès !';
+        }
+        else //Sinon (la fonction renvoie FALSE).
+        {
+            echo 'Echec de l\'upload !';
+        }
+
         $personneRepo = $this->getDoctrine()->getRepository(Personne::class);
+        $typeRepo = $this->getDoctrine()->getRepository(Type::class);
+
         //créer une instance de doudou vide
         $doudou = new Doudou();
         //interprétation des champs du formulaire
         $color = $request->request->get('color');
-        $type = $request->request->get('type');
-        $lieu = $request->request->get('lieu');
+
         $chkBox = $request->request->get('chkGeo');
-        $photo = $request->request->get('photo');
-        $id_detenteur = $request->request->get('detenteur');
-        $detenteur = $personneRepo->find($id_detenteur);
         $latitude = $request->request->get('latitude');
         $longitude = $request->request->get('longitude');
-        
+        $lieu = $request->request->get('lieu');
+        $id_detenteur = $request->request->get('detenteur');
+        $detenteur = $personneRepo->find($id_detenteur);
+        $id_type = $request->request->get('type');
+        $type = $typeRepo->find($id_type);
+
+
+
         //renseignement des champs utiles pour la création du doudou
         $doudou->setCouleur($color);
         $doudou->setType($type);
@@ -116,6 +152,7 @@ class ApiController extends Controller
         $doudou->setLng($longitude);
         $doudou->setDateDecouverte(new \DateTime());
         
+
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($doudou);

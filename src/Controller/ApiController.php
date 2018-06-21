@@ -30,6 +30,27 @@ class ApiController extends Controller
     }
 
     /**
+     * @Route("/api/v1/doudous/recherche", name="api_doudous_recherche", methods={"GET"})
+     */
+    public function doudousRecherche(Request $request)
+    {
+        $doudouRepo = $this->getDoctrine()->getRepository(Doudou::class);
+        $id = $request->query->get('id');
+        $image = $request->query->get('photo');
+
+        $doudous = $doudouRepo->findBy([
+            'id' => $id,
+            'photo' => $image,
+        ]);
+
+        return $this->json([
+            "status" => "ok",
+            "message" => "",
+            "data" => $doudous,
+        ]);
+    }
+
+    /**
      * @Route("/api/v1/doudous/random", name="api_doudous_random", methods={"GET"})
      */
     public function randomDoudous(Request $request)

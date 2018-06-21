@@ -113,6 +113,7 @@ class ApiController extends Controller
         $detenteur->setEmail($email);
         $detenteur->setFirstname($prenom);
         $detenteur->setLastname($nom);
+        $detenteur->setDateenregistrement(new \DateTime());
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($detenteur);

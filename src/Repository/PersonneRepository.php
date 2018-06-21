@@ -31,7 +31,7 @@ class PersonneRepository extends ServiceEntityRepository
             $qb->setParameter("q", '%' . $q . '%');
         }
 
-        $qb->addOrderBy("d.lastname", "DESC");
+        $qb->addOrderBy("d.dateenregistrement", "DESC");
 
         //jointure pour récupérer les reviews en même temps
         //$qb->leftJoin('d.reviews', 'r');

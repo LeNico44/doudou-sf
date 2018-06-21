@@ -38,6 +38,11 @@ class Personne implements \JsonSerializable
      */
     private $doudous;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $dateenregistrement;
+
     public function __construct()
     {
         $this->doudous = new ArrayCollection();
@@ -131,5 +136,17 @@ class Personne implements \JsonSerializable
             "nom" => $this->getLastname(),
             "email" => $this->getEmail(),
         ];
+    }
+
+    public function getDateenregistrement(): ?\DateTimeInterface
+    {
+        return $this->dateenregistrement;
+    }
+
+    public function setDateenregistrement(?\DateTimeInterface $dateenregistrement): self
+    {
+        $this->dateenregistrement = $dateenregistrement;
+
+        return $this;
     }
 }

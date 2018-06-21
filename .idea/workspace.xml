@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99d932c2-eeae-4bf9-8425-a2f4918fb53f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ApiController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/DoudouRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/DoudouRepository.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,16 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CoordGPSRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Repository/CoordGPSRepository.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="DoudouRepository.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DoudouRepository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Repository/DoudouRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+            <state relative-caret-position="-289">
+              <caret line="18" column="54" lean-forward="true" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -44,8 +37,8 @@
       <file leaf-file-name="Doudou.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/Doudou.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="65" column="23" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
+            <state relative-caret-position="-714">
+              <caret line="76" column="36" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -57,11 +50,6 @@
               <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".env.dist" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env.dist">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="Personne.php" pinned="false" current-in-tab="false">
@@ -76,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="21" column="36" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="36" />
+            <state relative-caret-position="-698">
+              <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -97,7 +85,7 @@
       <file leaf-file-name="Type.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/Type.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-868">
+            <state relative-caret-position="153">
               <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
             </state>
           </provider>
@@ -114,7 +102,11 @@
       <find>findAll</find>
       <find>jsonSerialize</find>
       <find>json</find>
+      <find>'r'</find>
     </findStrings>
+    <replaceStrings>
+      <replace>'t'</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -336,14 +328,16 @@
       <workItem from="1529351102660" duration="299000" />
       <workItem from="1529478025779" duration="750000" />
       <workItem from="1529494169410" duration="8584000" />
+      <workItem from="1529566590826" duration="2700000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94459000" />
+    <option name="totallyTimeSpent" value="97159000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.118125" />
       <window_info anchor="bottom" id="TODO" order="11" />
@@ -369,19 +363,19 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.11845238" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="4" />
       <window_info anchor="bottom" id="Run" order="7" />
       <window_info anchor="bottom" id="Find" order="6" visible="true" weight="0.17653508" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.32978722" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="4" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -399,6 +393,20 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Entity/Type.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/DoudouRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/DoudouRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -672,12 +680,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env.dist">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Type.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-868">
+        <state relative-caret-position="153">
           <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
         </state>
       </provider>
@@ -689,27 +694,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/CoordGPSRepository.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="21" column="36" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Doudou.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="65" column="23" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
+        <state relative-caret-position="-714">
+          <caret line="76" column="36" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/DoudouRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+        <state relative-caret-position="-289">
+          <caret line="18" column="54" lean-forward="true" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-698">
+          <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
         </state>
       </provider>
     </entry>

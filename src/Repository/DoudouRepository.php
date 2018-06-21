@@ -48,15 +48,16 @@ class DoudouRepository extends ServiceEntityRepository
         if(!empty($q)){
             $qb->andWhere('d.id LIKE :q
                 OR d.Couleur LIKE :q 
-                OR d.photo LIKE :q');
+                OR d.lieuDecouverte LIKE :q
+                OR t.label LIKE :q');
             $qb->setParameter("q", '%' . $q . '%');
         }
 
         $qb->addOrderBy("d.id", "DESC");
 
-        //jointure pour récupérer les reviews en même temps
-        //$qb->leftJoin('d.reviews', 'r');
-        //$qb->addSelect('r');
+        //jointure pour récupérer le type en même temps
+        $qb->leftJoin('d.type', 't');
+        $qb->addSelect('t');
 
         $query = $qb->getQuery();
 

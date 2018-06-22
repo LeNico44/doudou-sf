@@ -52,6 +52,9 @@ class DoudouRepository extends ServiceEntityRepository
 
         if(!empty($c)){
             $qb->andWhere('d.Couleur LIKE :c');
+            if($c == "Choisir la couleur principale(parmi les couleurs trouvées)"){
+                $c = null;
+            }
             $qb->setParameter("c", '%' . $c . '%');
         }
 
@@ -62,7 +65,7 @@ class DoudouRepository extends ServiceEntityRepository
 
         if(!empty($t)){
             $qb->andWhere('ty.label LIKE :t');
-            if($t = "Non-défini"){
+            if($t == "Non-défini"){
                 $t = null;
             }
             $qb->setParameter("t", '%' . $t . '%');

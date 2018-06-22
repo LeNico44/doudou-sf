@@ -62,6 +62,9 @@ class DoudouRepository extends ServiceEntityRepository
 
         if(!empty($t)){
             $qb->andWhere('ty.label LIKE :t');
+            if($t = "Non-défini"){
+                $t = null;
+            }
             $qb->setParameter("t", '%' . $t . '%');
         }
 

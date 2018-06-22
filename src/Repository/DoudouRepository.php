@@ -40,24 +40,36 @@ class DoudouRepository extends ServiceEntityRepository
         return $doudou;
     }
 
-    public function search(?string $q = null)
+    public function search(?string $q = null, ?string $c = null, ?string $l = null, ?string $t = null)
     {
         //Version avec QueryBuilder
         $qb = $this->createQueryBuilder('d');
 
         if(!empty($q)){
-            $qb->andWhere('d.id LIKE :q
-                OR d.Couleur LIKE :q 
-                OR d.lieuDecouverte LIKE :q
-                OR t.label LIKE :q');
+            $qb->andWhere('d.id LIKE :q');
             $qb->setParameter("q", '%' . $q . '%');
+        }
+
+        if(!empty($c)){
+            $qb->andWhere('d.Couleur LIKE :c');
+            $qb->setParameter("c", '%' . $c . '%');
+        }
+
+        if(!empty($l)){
+            $qb->andWhere('d.lieuDecouverte LIKE :l');
+            $qb->setParameter("l", '%' . $l . '%');
+        }
+
+        if(!empty($t)){
+            $qb->andWhere('ty.label LIKE :t');
+            $qb->setParameter("t", '%' . $t . '%');
         }
 
         $qb->addOrderBy("d.id", "DESC");
 
         //jointure pour récupérer le type en même temps
-        $qb->leftJoin('d.type', 't');
-        $qb->addSelect('t');
+        $qb->leftJoin('d.type', 'ty');
+        $qb->addSelect('ty');
 
         $query = $qb->getQuery();
 

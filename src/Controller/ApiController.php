@@ -20,7 +20,10 @@ class ApiController extends Controller
     {
         $doudouRepo = $this->getDoctrine()->getRepository(Doudou::class);
         $q = $request->query->get('q');
-        $doudous = $doudouRepo->search($q);
+        $c = $request->query->get('c');
+        $l = $request->query->get('l');
+        $t = $request->query->get('t');
+        $doudous = $doudouRepo->search($q, $c, $l, $t);
 
         return $this->json([
             "status" => "ok",
